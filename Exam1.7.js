@@ -1,21 +1,17 @@
+const padZero = num => num.toString().padStart(2, '0')
+
+const toIsoString = date => {
+  const dateYear = date.getUTCFullYear()
+  const dateDay = padZero(date.getUTCDate())
+  const dateMonth = padZero(date.getUTCMonth())
+  const dateHours = padZero(date.getUTCHours())
+  const dateMin = padZero(date.getUTCMinutes())
+  const dateSeconds = padZero(date.getUTCSeconds())
+  const dateMillisec = padZero(date.getUTCMilliseconds())
+
+  return `${dateYear}-${dateDay}-${dateMonth}T${dateHours}:${dateMin}:${dateSeconds}.${dateMillisec}Z`
+}
+
 const date = new Date()
-
-function dateToIsoString(date) {
-let dateYear = date.getUTCFullYear();
-let dateDay = date.getUTCDate();
-let dateMonth = date.getUTCMonth();
-let dateHours = date.getUTCHours();
-let dateMin = date.getUTCMinutes();
-let dateSeconds = date.getUTCSeconds();
-let dateMillisec = date.getUTCMilliseconds();
-
-if(dateMonth < 10) {
-    dateMonth = "0" + dateMonth;
-} 
-if( dateMin < 10){
-    dateMin = "0" + dateMin;
-}
-
-console.log(`${dateYear}-${dateDay}-${dateMonth}T${dateHours}:${dateMin}:${dateSeconds}.${dateMillisec}Z`);
-}
-dateToIsoString(date);
+const strDate = toIsoString(date)
+console.log(strDate)
