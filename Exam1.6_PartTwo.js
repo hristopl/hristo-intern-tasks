@@ -6,9 +6,9 @@ const findLongestWord = (str, char) => {
 
   const stringArr = str.split(" ");
 
-  for (let word of stringArr) {
+  for (const word of stringArr) {
     let alphaWord = word.replace(/[^a-zA-Z]/g, '')
-    if(alphaWord.length > max && alphaWord.startsWith(`${char}`)){
+    if(alphaWord.length > max && alphaWord.startsWith(char)){
       max = alphaWord.length
       result = alphaWord
     }
