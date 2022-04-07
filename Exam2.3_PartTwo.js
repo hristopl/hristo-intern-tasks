@@ -1,10 +1,4 @@
-const isObject = (obj) => {
-  if (typeof obj === "object" && obj !== null) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const isObject = obj => typeof obj === "object" && obj !== null
 
 const appender = (arr1, arr2) => {
   const array = [];
