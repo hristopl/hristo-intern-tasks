@@ -1,16 +1,18 @@
-const array = [6, "Test", "value", 1, undefined, null,  () => {console.log("Hello,  world!")}, {count: 5}];
+const array = [6, "Test", "value", 1, undefined, null, () => { console.log("Hello,  world!") }, { count: 5 }];
 
-function countArray(array){
+function countArray(array) {
+  if (array === undefined) return undefined
+
   const counter = {
-  nullCount : 0,
-  objectsCount : 0,
-  stringsCount : 0,
-  numericsCount : 0,
-  arraysCount : 0,
-  undefinedCount : 0,
-  datesCount : 0,
-  booleansCount : 0,
-  functions : 0
+    nullCount: 0,
+    objectsCount: 0,
+    stringsCount: 0,
+    numericsCount: 0,
+    arraysCount: 0,
+    undefinedCount: 0,
+    datesCount: 0,
+    booleansCount: 0,
+    functions: 0
   }
 
   for (const val of array) {
@@ -46,14 +48,17 @@ function countArray(array){
       counter.booleansCount++;
       continue;
     }
-    if(typeof val === 'function'){
+    if (typeof val === 'function') {
       counter.functions++;
       continue;
     }
   }
-  console.log(counter);
+  return counter
 }
-countArray(array);
+const result = countArray(array);
+console.log(result);
+
+module.exports = countArray
 
 
 

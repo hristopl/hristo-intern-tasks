@@ -1,5 +1,5 @@
 const { test, expect } = require("@jest/globals");
-const countArray = require("./Exam1.4");
+const countArray = require("../Exam1.4");
 
 const arr = [
   6,
@@ -27,8 +27,8 @@ describe("countArray", () => {
 
     expect(result).toBeUndefined();
   })
-  test('should count array',()=>{
-  })
+  // test('should count array',()=>{
+  // })
   test('should count null',()=> {
     const array1 = [null];
     const array2 = [null, null];
