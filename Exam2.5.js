@@ -1,7 +1,7 @@
 const isObjectOrArray = x => typeof x === 'object' && x !== null 
 
 const recursion = (objOrArr, fields = []) => 
-  Object.entries(objOrArr).flatMap(([key, val]) => 
+  Object.entries(objOrArr).map(([key, val]) => 
     isObjectOrArray(val) 
       ? recursion(val, [...fields, key])
       : { [[...fields, key].join('_')]: val }
