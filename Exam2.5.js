@@ -1,14 +1,14 @@
-const flatten = (arr, parentKey = 1, result = []) => {
-  Object.keys(arr).forEach((key) => {
-    const propertyName = parentKey ? parentKey + "_" + key : key;
-    if (typeof arr[key] === "object") {
-      flatten(arr[key], propertyName, result);
-    } else {
-      result[propertyName] = arr[key];
-    }
-  });
-  return result;
-};
+const isObjectOrArray = x => typeof x === 'object' && x !== null 
+
+const recursion = (objOrArr, fields = []) => 
+  Object.entries(objOrArr).flatMap(([key, val]) => 
+    isObjectOrArray(val) 
+      ? recursion(val, [...fields, key])
+      : { [[...fields, key].join('_')]: val }
+  )
+    .reduce((obj, fieldObj) => ({...obj, ...fieldObj}), {})
+
+const flatten = arr  => arr.map(x => isObjectOrArray(x) ? recursion(x) : x)
 
 const array = [
   {
@@ -26,6 +26,20 @@ const array = [
   },
   "sunny day",
   5,
+  {
+    person: {
+      firstName: "John",
+      lastName: "Doe",
+      role: "Admin",
+      address: {
+        city: "Plovdiv",
+        street: { 
+          name: "Main",
+          number: 3
+        }
+      }
+    }
+  }
 ];
 
 console.log(flatten(array));
