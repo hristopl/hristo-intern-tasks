@@ -1,14 +1,9 @@
 const weightCounter = (item) => {
   let counter = 0;
-  if (typeof item === "object" && item !== null) {
+  if (typeof item === "object" && item !== null || Array.isArray(item)) {
     counter += 10;
     for (const key in item) {
       counter += weightCounter(item[key]);
-    }
-  } else if (Array.isArray(item)) {
-    counter += 10;
-    for (let j = 0; j < item.length; j++) {
-      counter += weightCounter(item[j]);
     }
   }
   if (typeof item === "string") {
@@ -19,7 +14,7 @@ const weightCounter = (item) => {
     counter += 2;
   } else if (typeof item === "function") {
     counter += 10;
-  } else if ( item === undefined) {
+  } else if (item === undefined) {
     counter += 2;
   } else if (typeof item === "boolean") {
     counter += 4;
@@ -28,9 +23,9 @@ const weightCounter = (item) => {
   return counter;
 };
 
-const findByWeight = (arr,weight) => {
-return !!arr.filter(el => weightCounter(el) === weight)
-}
+const findByWeight = (arr, weight) => {
+  return !!arr.filter((el) => weightCounter(el) === weight);
+};
 
 const arr = [
   6,
