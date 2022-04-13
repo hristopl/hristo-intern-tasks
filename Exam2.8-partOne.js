@@ -28,16 +28,6 @@ const weightCounter = (item) => {
   return counter;
 };
 
-// const findByWeight = (array, weight) => {
-//   let hasEqualWeight = false;
-//   for (let i = 0; i < array.length; i++) {
-//     if (weightCounter(array[i]) === weight) {
-//       return !hasEqualWeight;
-//     }
-//   }
-//   return hasEqualWeight;
-// };
-
 const findByWeight = (arr,weight) => {
 return !!arr.filter(el => weightCounter(el) === weight)
 }
