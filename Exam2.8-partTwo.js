@@ -30,9 +30,12 @@ const weightCounter = (item) => {
 
 const findByWeight = (arr, weight) => {
   let isWeightBigger = false;
-  let result = arr.reduce((prevVal,curVal) => prevVal + weightCounter(curVal) ,0)
-  if(result > weight) {
-    return  !isWeightBigger;
+  let result = arr.reduce(
+    (prevVal, curVal) => weightCounter(curVal) + prevVal,
+    0
+  );
+  if (result > weight) {
+    return !isWeightBigger;
   }
   return isWeightBigger;
 };
