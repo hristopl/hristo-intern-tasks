@@ -2,8 +2,8 @@ const weightCounter = (item) => {
   let counter = 0;
   if (typeof item === "object" && item !== null || Array.isArray(item)) {
     counter += 10;
-    for (const key in item) {
-      counter += weightCounter(item[key]);
+    for (const val in item) {
+      counter += weightCounter(item[val]);
     }
   }
   if (typeof item === "string") {
