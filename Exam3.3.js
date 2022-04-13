@@ -7,10 +7,7 @@ class Color {
     this.opacity = opacity;
   }
 
-  getColorRGB = () =>
-    `rgb(${this.r},${this.g},${this.b}${
-      this.opacity ? `, ${this.opacity}` : ""
-    })`;
+  getColorRGB = () => `rgb(${this.r},${this.g},${this.b}${this.opacity ? `, ${this.opacity}` : ""})`;
 
   getColorShortHex = () => {
     const regexShortHex = /^#[A-Fa-f0-9]{3}$/;
