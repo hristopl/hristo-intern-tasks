@@ -15,7 +15,7 @@ const weightCounter = (item) => {
     counter += 8;
   } else if (typeof item === "number") {
     counter += 4;
-  } else if (!item && typeof item === "object") {
+  } else if (item === null) {
     counter += 2;
   } else if (typeof item === "function") {
     counter += 10;
