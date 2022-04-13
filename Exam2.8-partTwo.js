@@ -34,7 +34,7 @@ const findByWeight = (arr, weight) => {
     (prevVal, curVal) => weightCounter(curVal) + prevVal,
     0
   );
-  if (result > weight) {
+  if (result >= weight) {
     return !isWeightBigger;
   }
   return isWeightBigger;
