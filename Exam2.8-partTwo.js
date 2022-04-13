@@ -1,6 +1,6 @@
 const weightCounter = (item) => {
   let counter = 0;
-  if (typeof item === "object" && item) {
+  if (typeof item === "object" && item !== null) {
     counter += 10;
     for (const key in item) {
       counter += weightCounter(item[key]);
@@ -19,7 +19,7 @@ const weightCounter = (item) => {
     counter += 2;
   } else if (typeof item === "function") {
     counter += 10;
-  } else if (typeof item === undefined) {
+  } else if (item === undefined) {
     counter += 2;
   } else if (typeof item === "boolean") {
     counter += 4;
@@ -30,7 +30,7 @@ const weightCounter = (item) => {
 
 const findByWeight = (arr, weight) => {
   let isWeightBigger = false;
-  let result = arr.reduce(
+  const result = arr.reduce(
     (prevVal, curVal) => weightCounter(curVal) + prevVal,
     0
   );
