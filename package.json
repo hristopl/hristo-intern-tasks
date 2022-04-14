@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start33": "node -r esm Exam3.3-FP.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
