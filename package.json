@@ -7,6 +7,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start33": "node -r esm Exam3.3-FP.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/hristopl/hristo-intern-tasks#readme",
   "devDependencies": {
     "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
   }
 }

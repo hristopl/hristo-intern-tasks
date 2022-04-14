@@ -1,10 +1,14 @@
 class Color {
-  constructor(r = 0, g = 0, b = 0, hexString = "#000000", opacity) {
-    this.r = r;
-    this.g = g;
-    this.b = b;
-    this.hex = hexString;
-    this.opacity = opacity;
+  constructor(r = 0, g = 0, b = 0, opacity) {
+    if (typeof r === 'string') {
+      const {r, g, b} = this.convertFromHex( r )
+    }
+      this.r = r;
+      this.g = g;
+      this.b = b;
+      // 
+      this.opacity = opacity;
+    }
   }
 
   getColorRGB = () => `rgb(${this.r},${this.g},${this.b}${this.opacity ? `, ${this.opacity}` : ""})`;
@@ -25,6 +29,7 @@ class Color {
 }
 
 const color = new Color(0, 255, 50, "#ff0000");
+const color2 = new Color("#ff0000")
 console.log(color.getColorRGB());
 console.log(color.getColorShortHex());
 console.log(color.getColorLongHex());
