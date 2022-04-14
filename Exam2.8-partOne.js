@@ -23,9 +23,8 @@ const weightCounter = (item) => {
   return counter;
 };
 
-const findByWeight = (arr, weight) => {
-  return !!arr.filter((el) => weightCounter(el) === weight);
-};
+const findByWeight = (arr, weight) =>
+  !!arr.find((el) => weightCounter(el) === weight);
 
 const arr = [
   6,
