@@ -1,6 +1,6 @@
 const weightCounter = (item) => {
   let counter = 0;
-  if (typeof item === "object" && item !== null || Array.isArray(item)) {
+  if ((typeof item === "object" && item !== null) || Array.isArray(item)) {
     counter += 10;
     for (const val in item) {
       counter += weightCounter(item[val]);
@@ -24,16 +24,9 @@ const weightCounter = (item) => {
 };
 
 const findByWeight = (arr, weight) => {
-  let isWeightBigger = false;
-  const result = arr.reduce(
-    (prevVal, curVal) => weightCounter(curVal) + prevVal,
-    0
-  );
-  if (result > weight) {
-    return !isWeightBigger;
-  }
-  return isWeightBigger;
+return arr.every((el) => weightCounter(el > weight));
 };
+
 
 const array = [
   6,
@@ -44,6 +37,6 @@ const array = [
   null,
   { name: "john.doe", role: "admim" },
 ];
-const weight = 53;
+const weight = 2;
 const result = findByWeight(array, weight);
 console.log(result);
