@@ -20,7 +20,7 @@ const fromString = strColor => {
   const r = Number(rStr)
   const g = Number(gStr)
   const b = Number(bStr)
-  
+
   return MaybeColor(r, g, b)
 }
 
@@ -28,7 +28,6 @@ const fromString = strColor => {
 // return error === null ? { error, value: color } : { error, value: null }
 // }
 
-// const rgb2ShortHex =
 const rgb2LongHex = ({ r, g, b }) => `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`
 
 const toString = ({ r, g, b }) => `(${r}, ${g}, ${b})`

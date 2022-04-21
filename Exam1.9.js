@@ -1,78 +1,78 @@
-const padZero = (num) => num.toString().padStart(2, "0");
+const padZero = (num) => num.toString().padStart(2, '0')
 
 const monthName = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
 const dayOfWeekName = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday'
+]
 
-function getDayShortName(date) {
-  const index = date.getDay();
-  return dayOfWeekName[index - 1].substring(0, 3);
+function getDayShortName (date) {
+  const index = date.getDay()
+  return dayOfWeekName[index - 1].substring(0, 3)
 }
 
-function getDayLongName(date) {
-  const index = date.getDay();
-  return dayOfWeekName[index - 1];
+function getDayLongName (date) {
+  const index = date.getDay()
+  return dayOfWeekName[index - 1]
 }
 
-function getMonthShortName(date) {
-  const index = date.getMonth();
-  return monthName[index].substring(0, 3);
+function getMonthShortName (date) {
+  const index = date.getMonth()
+  return monthName[index].substring(0, 3)
 }
 
-function getMonthLongName(date) {
-  const index = date.getMonth();
-  return monthName[index];
+function getMonthLongName (date) {
+  const index = date.getMonth()
+  return monthName[index]
 }
 
-function getQuarter() {
+function getQuarter () {
   if (date.getMonth() < 2) {
-    return 1;
+    return 1
   } else if (date.getMonth() < 5) {
-    return 2;
+    return 2
   } else if (date.getMonth() < 8) {
-    return 3;
+    return 3
   } else if (date.getMonth() < 11) {
-    return 4;
+    return 4
   }
 }
 
-function getDayOfMonth(date) {
-  const day = date.getDate();
+function getDayOfMonth (date) {
+  const day = date.getDate()
   if (day === 1) {
-    return day + "st";
+    return day + 'st'
   } else if (day === 2) {
-    return day + "nd";
+    return day + 'nd'
   } else if (day === 3) {
-    return day + "rd";
+    return day + 'rd'
   } else if (day > 3) {
-    return day + "th";
+    return day + 'th'
   }
 }
 
-function getWeekOfYear() {
-  let janFirst = new Date(date.getFullYear(), 0, 1);
-  let numberOfDays = Math.floor((date - janFirst) / (24 * 60 * 60 * 1000));
-  return (result = Math.ceil((date.getDay() + 1 + numberOfDays) / 7));
+function getWeekOfYear () {
+  const janFirst = new Date(date.getFullYear(), 0, 1)
+  const numberOfDays = Math.floor((date - janFirst) / (24 * 60 * 60 * 1000))
+  return Math.ceil((date.getDay() + 1 + numberOfDays) / 7)
 }
 
 const obj = {
@@ -94,16 +94,16 @@ const obj = {
   ss: (date) => padZero(date.getSeconds()),
   s: (date) => date.getSeconds(),
   Q: getQuarter,
-  W: getWeekOfYear,
-};
-
-function format(date, sentence) {
-  return Object.entries(obj).reduce((result, [pattern, fun]) => {
-    return result.replace(pattern, fun(date));
-  }, sentence);
+  W: getWeekOfYear
 }
 
-const date = new Date();
-const string = "YYYY-MMM-DD HH:mm:ss Is my proof of concept!";
+function format (date, sentence) {
+  return Object.entries(obj).reduce((result, [pattern, fun]) => {
+    return result.replace(pattern, fun(date))
+  }, sentence)
+}
 
-console.log(format(date, string));
+const date = new Date()
+const string = 'YYYY-MMM-DD HH:mm:ss Is my proof of concept!'
+
+console.log(format(date, string))

@@ -1,28 +1,28 @@
-//Pattern 4
+// Pattern 4
 
 const pattern4 = (n) => {
-  let string = "";
+  let string = ''
 
   for (let row = 1; row <= n; row++) {
     for (let space = 0; space < n - row; space++) {
-      string += " ";
+      string += ' '
     }
     for (let col = 1; col <= row; col++) {
-      string += " " + col;
+      string += ' ' + col
     }
-    string += "\n";
+    string += '\n'
   }
 
   for (let row = 1; row <= n - 1; row++) {
     for (let space = n; space < n + row; space++) {
-      string += " ";
+      string += ' '
     }
     for (let col = 1; col <= n - row; col++) {
-      string += " " + col;
+      string += ' ' + col
     }
-    string += "\n";
+    string += '\n'
   }
-  console.log(string);
-};
+  console.log(string)
+}
 
-pattern4(5);
+pattern4(5)

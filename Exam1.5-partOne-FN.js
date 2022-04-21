@@ -7,8 +7,8 @@ const typeFn = {
   arraysType: val => Array.isArray(val),
   undefinedType: val => val === undefined,
   datesType: val => val instanceof Date && !isNaN(val.valueOf()),
-  booleansType: val => typeof val === "boolean",
-  functions: val => typeof val === "function"
+  booleansType: val => typeof val === 'boolean',
+  functions: val => typeof val === 'function'
 }
 
 const getTypeKey = val => {
@@ -16,7 +16,7 @@ const getTypeKey = val => {
     .filter(e => {
       const [, fn] = e
       return fn(val)
-  })
+    })
   const [key] = onlyOne || []
 
   return key
@@ -24,7 +24,7 @@ const getTypeKey = val => {
 
 const weights = {
   nullType: 2,
-  objectsType: 10, 
+  objectsType: 10,
   stringsType: 8,
   numericsType: 4,
   arraysType: 10,
@@ -39,7 +39,7 @@ const debug = v => {
   return v
 }
 
-const weightCounter = obj => 
+const weightCounter = obj =>
   Object.values(obj)
     .map(v => {
       const type = getTypeKey(v)
@@ -51,18 +51,18 @@ const weightCounter = obj =>
 
 const obj = {
   cards: 6,
-  label: "Test",
-  description: "value",
+  label: 'Test',
+  description: 'value',
   type: 1,
   role: undefined,
-  person: { name: "John Doe" },
+  person: { name: 'John Doe' },
   skills: null,
   report: () => {
-    console.log("Hello,  world!");
+    console.log('Hello,  world!')
   },
-  experience: { count: 5 },
+  experience: { count: 5 }
 }
 
-const counter2 = weightCounter(obj);
+const counter2 = weightCounter(obj)
 
-console.log(counter2);
+console.log(counter2)

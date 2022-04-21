@@ -1,19 +1,19 @@
 // Pattern 1
 
 const pattern1 = (n) => {
-  let string = "";
+  let string = ''
 
   for (let row = 1; row <= n; row++) {
     for (let col = 1; col <= row; col++) {
-      string += col + " ";
+      string += col + ' '
     }
-    string += "\n";
+    string += '\n'
   }
-  console.log(string);;
-};
-pattern1(5);
+  console.log(string)
+}
+pattern1(5)
 
-//Pattern 1 - by mentor
+// Pattern 1 - by mentor
 
 // const pattern1 = len => {
 //   let arr = []

@@ -1,4 +1,4 @@
-const isObject = obj => typeof obj === "object" && obj !== null && !Array.isArray(obj)
+const isObject = obj => typeof obj === 'object' && obj !== null && !Array.isArray(obj)
 
 const appenderFP = (arr1, arr2) => {
   const arrays = arr2.filter(Array.isArray).flat()
@@ -12,19 +12,19 @@ const appenderFP = (arr1, arr2) => {
 
 const arr1 = [
   [1, 2, 3, 4],
-  ["one", "two"],
-  [5, 6],
-];
+  ['one', 'two'],
+  [5, 6]
+]
 
 const arr2 = [
   null,
   () => {
-    console.log("Hello,  world!");
+    console.log('Hello,  world!')
   },
-  ["one", "five"],
-  { role: "admin" },
-  { name: "John" },
-  [1000, 1001],
-];
+  ['one', 'five'],
+  { role: 'admin' },
+  { name: 'John' },
+  [1000, 1001]
+]
 
 console.log(appenderFP(arr1, arr2))
