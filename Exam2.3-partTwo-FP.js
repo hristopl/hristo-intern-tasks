@@ -1,3 +1,17 @@
+const arr2 = [
+  null,
+  () => { console.log('Hello,  world!') },
+  ['one', 'five'],
+  { role: 'admin' },
+  { name: 'John' },
+  [1000, 1001]
+]
+
+const arr1 = [
+  [1, 2, 3, 4],
+  ['one', 'two'],
+  [5, 6]
+]
 const isObject = obj => typeof obj === 'object' && obj !== null && !Array.isArray(obj)
 
 const appenderFP = (arr1, arr2) => {
@@ -10,21 +24,6 @@ const appenderFP = (arr1, arr2) => {
       : [...el, ...objects])
 }
 
-const arr1 = [
-  [1, 2, 3, 4],
-  ['one', 'two'],
-  [5, 6]
-]
-
-const arr2 = [
-  null,
-  () => {
-    console.log('Hello,  world!')
-  },
-  ['one', 'five'],
-  { role: 'admin' },
-  { name: 'John' },
-  [1000, 1001]
-]
-
 console.log(appenderFP(arr1, arr2))
+
+module.exports = appenderFP

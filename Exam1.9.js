@@ -47,11 +47,11 @@ function getMonthLongName (date) {
 function getQuarter () {
   if (date.getMonth() < 2) {
     return 1
-  } else if (date.getMonth() < 5) {
+  } else if (date.getMonth() <= 5) {
     return 2
-  } else if (date.getMonth() < 8) {
+  } else if (date.getMonth() <= 8) {
     return 3
-  } else if (date.getMonth() < 11) {
+  } else if (date.getMonth() <= 11) {
     return 4
   }
 }
@@ -104,6 +104,8 @@ function format (date, sentence) {
 }
 
 const date = new Date()
-const string = 'YYYY-MMM-DD HH:mm:ss Is my proof of concept!'
+const string = 'YYYY-Q-DD HH:mm:ss Is my proof of concept!'
 
 console.log(format(date, string))
+
+module.exports = format

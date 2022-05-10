@@ -20,8 +20,8 @@ function countArray (array) {
       counter.nullCount++
       continue
     }
-    if (typeof val === 'object' && !Array.isArray(val) || val == undefined) {
-      counter.objectsCount++
+    if (val instanceof Date && !isNaN(val.valueOf())) {
+      counter.datesCount++
       continue
     }
     if (typeof val === 'string') {
@@ -40,16 +40,16 @@ function countArray (array) {
       counter.undefinedCount++
       continue
     }
-    if (val instanceof Date && !isNaN(val.valueOf())) {
-      counter.datesCount++
-      continue
-    }
     if (typeof val === 'boolean') {
       counter.booleansCount++
       continue
     }
     if (typeof val === 'function') {
       counter.functions++
+      continue
+    }
+    if (typeof val === 'object') {
+      counter.objectsCount++
       continue
     }
   }

@@ -14,7 +14,10 @@ const sortingArray = (arr, fn) => {
 }
 
 const array = [6, 4, 3, 1, 9, 44, 33, 2]
+// const array = []
 const func = (left, right) => {
-  return left < right
+  return right < left
 }
 console.log(sortingArray(array, func))
+
+module.exports = sortingArray

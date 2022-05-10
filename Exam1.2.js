@@ -1,4 +1,5 @@
-const array = [6, 4, 3, 1, 9, 44, 33, 2]
+// const array = [6, 4, 3, 1, 9, 44, 33, 2]
+const array = [undefined, 6, 5, 4]
 console.log('Array before sort: ' + '[' + array + '] ')
 
 const bubbleSort = array => {
@@ -17,3 +18,5 @@ const bubbleSort = array => {
 }
 bubbleSort(array)
 console.log('Array after sort: ' + '[' + array + ']')
+
+module.exports = bubbleSort

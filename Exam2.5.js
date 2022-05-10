@@ -43,3 +43,5 @@ const array = [
 ]
 
 console.log(flatten(array))
+
+module.exports = flatten

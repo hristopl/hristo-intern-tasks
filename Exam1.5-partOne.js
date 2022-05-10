@@ -6,9 +6,7 @@ const obj = {
   role: undefined,
   person: { name: 'John Doe' },
   skills: null,
-  report: () => {
-    console.log('Hello,  world!')
-  },
+  report: () => {},
   experience: { count: 5 }
 }
 
@@ -32,3 +30,5 @@ const weightCounter = (obj) => {
   return counter
 }
 console.log(weightCounter(obj))
+
+module.exports = weightCounter

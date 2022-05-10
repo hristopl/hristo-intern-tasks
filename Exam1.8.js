@@ -18,7 +18,7 @@ const unitRound = {
   minutes: round(convToMinutes)
 }
 
-const timeDiff = (data1, data2) => {
+const timeDiff = (date1, date2) => {
   const secDiff = (date1 - date2) / 1000
   for (const [unit, fun] of Object.entries(unitRound)) {
     const val = fun(secDiff)
@@ -26,7 +26,9 @@ const timeDiff = (data1, data2) => {
   }
 }
 
-const date1 = new Date('2022-02-01 10:00:00')
+const date1 = new Date()
 const date2 = new Date('2022-01-20 10:00:00')
 
 console.log(timeDiff(date1, date2))
+
+module.exports = timeDiff

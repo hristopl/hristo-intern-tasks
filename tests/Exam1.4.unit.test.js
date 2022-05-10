@@ -1,18 +1,5 @@
-const { test, expect } = require('@jest/globals')
+const { test, expect, describe } = require('@jest/globals')
 const countArray = require('../Exam1.4')
-
-const arr = [
-  6,
-  'Test',
-  'value',
-  1,
-  undefined,
-  null,
-  () => {
-    console.log('Hello,  world!')
-  },
-  { count: 5 }
-]
 
 const areAllZeroes = arr => Object.values(arr).every(x => x === 0)
 
@@ -27,8 +14,6 @@ describe('countArray', () => {
 
     expect(result).toBeUndefined()
   })
-  // test('should count array',()=>{
-  // })
   test('should count null', () => {
     const array1 = [null]
     const array2 = [null, null]
@@ -45,21 +30,54 @@ describe('countArray', () => {
     expect(nullCount2).toBe(2)
     expect(areAllZeroes(rest2)).toBe(true)
   })
-  test('should return proper obj', () => {
-    const expectedResult = {
-      nullCount: 1,
-      objectsCount: 2,
-      stringsCount: 2,
-      numericsCount: 2,
-      arraysCount: 0,
-      undefinedCount: 0,
-      datesCount: 0,
-      booleansCount: 0,
-      functions: 1
-    }
+  test('should count array', () => {
+    const array = [[1, 2, 3]]
+
+    const result = countArray(array)
+
+    const { arraysCount, ...rest } = result
+
+    expect(arraysCount).toBe(1)
+    expect(areAllZeroes(rest)).toBe(true)
+  })
+  test('should count undefined', () => {
+    const array = [undefined]
+
+    const result = countArray(array)
+
+    const { undefinedCount, ...rest } = result
+
+    expect(undefinedCount).toBe(1)
+    expect(areAllZeroes(rest)).toBe(true)
+  })
+  test('should count date', () => {
+    const arr = [new Date('2022-03-11')]
 
     const result = countArray(arr)
 
-    expect(result).toEqual(expectedResult)
+    const { datesCount, ...rest } = result
+
+    expect(datesCount).toBe(1)
+    expect(areAllZeroes(rest)).toBe(true)
+  })
+  test('should count boolean', () => {
+    const arr = [false]
+
+    const result = countArray(arr)
+
+    const { booleansCount, ...rest } = result
+
+    expect(booleansCount).toBe(1)
+    expect(areAllZeroes(rest)).toBe(true)
+  })
+  test('should count object', () => {
+    const arr = [{ count: 5 }]
+
+    const result = countArray(arr)
+
+    const { objectsCount, ...rest } = result
+
+    expect(objectsCount).toBe(1)
+    expect(areAllZeroes(rest)).toBe(true)
   })
 })

@@ -1,33 +1,26 @@
-const randomize = (array) => {
-  const randomizedArr = array.sort(() => 0.5 - Math.random())
-  console.log(randomizedArr)
+const randomize = (arr) => {
+  arr = arr.sort(() => Math.random() - 0.5)
+  console.log(arr)
 
-  const result = []
-  let tempArray = []
-  let getTheLongestNumberLine = []
+  let sequence = []
+  const tmpArr = []
 
-  for (let i = 0; i < array.length - 1; i++) {
-    if (array[i] < array[i + 1]) {
-      tempArray.push(array[i])
-    } else {
-      tempArray.push(array[i])
-      result.push(tempArray)
-
-      if (getTheLongestNumberLine < tempArray.length) {
-        getTheLongestNumberLine = tempArray
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < arr[i + 1]) {
+      tmpArr.push(arr[i])
+    } else if (tmpArr.length > 0) {
+      tmpArr.push(arr[i])
+      if (sequence.length < tmpArr.length) {
+        sequence = tmpArr.splice(0, tmpArr.length)
+      } else {
+        tmpArr.splice(0, tmpArr.length)
       }
-      tempArray = []
     }
   }
-
-  for (let j = 0; j < result.length; j++) {
-    if (getTheLongestNumberLine.length < result[j].length) {
-      getTheLongestNumberLine = result[j]
-    }
-  }
-
-  return getTheLongestNumberLine
+  return sequence
 }
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 console.log(randomize(array))
+
+module.exports = randomize

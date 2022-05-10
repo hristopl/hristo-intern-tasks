@@ -17,3 +17,5 @@ const findLongestWord = (str, char) => {
 const str = 'What we do in life echoes to eternity!'
 const char = 'W'
 console.log(findLongestWord(str, char))
+
+module.exports = findLongestWord
