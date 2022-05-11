@@ -22,25 +22,38 @@ if ('help' in args) {
   process.exit()
 }
 
-const { path, exclude, fileTypes } = args
+// const { path, exclude, fileTypes } = args
 
 const fileLines = text => text.split(/\r\n|\r|\n/).length
 
-readdir(path)
-  .then(files => {
-    const filteredFiles = files
-      .filter((file) => !exclude.includes(file))
-      .filter((file) => fileTypes.some((ex) => file.endsWith(ex)))
+const readingDirectory = argument => {
+  const { path, exclude, fileTypes } = argument
 
-    const filePromises = filteredFiles.map(filesName => readFile(filesName))
-    Promise.all(filePromises)
-      .then(files =>
-        files
-          .map(buf => buf.toString('utf8'))
-          .map(fileLines)
-          .forEach((len, index) => console.log(len, filteredFiles[index]))
-      )
-  })
-  .catch(err => {
-    console.log(err)
-  })
+  return readdir(path)
+    .then(files =>
+      files
+        .filter((file) => !exclude.includes(file))
+        .filter((file) => fileTypes.some((ex) => file.endsWith(ex)))
+    ).catch(err => console.log(err))
+}
+
+console.log(readingDirectory(args))
+
+// readdir(path)
+//   .then(files => {
+//     const filteredFiles = files
+//       .filter((file) => !exclude.includes(file))
+//       .filter((file) => fileTypes.some((ex) => file.endsWith(ex)))
+
+//     const filePromises = filteredFiles.map(filesName => readFile(filesName))
+//     Promise.all(filePromises)
+//       .then(files =>
+//         files
+//           .map(buf => buf.toString('utf8'))
+//           .map(fileLines)
+//           .forEach((len, index) => console.log(len, filteredFiles[index]))
+//       )
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
