@@ -1,5 +1,5 @@
-const { readdir } = require('fs/promises')
-const { readFile } = require('fs/promises')
+import { readdir, readFile } from 'fs/promises'
+import { readingDirectory } from './lib/helpers'
 
 const initArguments = { path: process.cwd(), fileTypes: ['js'], exclude: ['node_modules'] }
 const [, , ...options] = process.argv
@@ -44,3 +44,7 @@ readdir(path)
   .catch(err => {
     console.log(err)
   })
+
+export {
+  readingDirectory
+}

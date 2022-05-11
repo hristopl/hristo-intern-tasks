@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "Exam1.1.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "start33": "node -r esm Exam3.3-FP.js",
     "test": "jest"
@@ -22,6 +19,10 @@
   },
   "homepage": "https://github.com/hristopl/hristo-intern-tasks#readme",
   "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-jest": "^28.1.0",
+    "jest": "^28.1.0",
     "standard": "^16.0.4"
   },
   "dependencies": {
