@@ -1,6 +1,7 @@
 const randomize = (arr) => {
-  arr = arr.sort(() => Math.random() - 0.5)
-  console.log(arr)
+  let array = arr
+  array = array.sort(() => Math.random() - 0.5)
+  console.log(array)
 
   let sequence = []
   const tmpArr = []
@@ -21,6 +22,7 @@ const randomize = (arr) => {
 }
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const array = []
 console.log(randomize(array))
 
 module.exports = randomize

@@ -1,5 +1,5 @@
 import { readdir, readFile } from 'fs/promises'
-import { readingDirectory } from './lib/helpers'
+import { getFiles, getFilesLength } from './lib/helpers'
 
 const initArguments = { path: process.cwd(), fileTypes: ['js'], exclude: ['node_modules'] }
 const [, , ...options] = process.argv
@@ -46,5 +46,5 @@ readdir(path)
   })
 
 export {
-  readingDirectory
+  fileLines
 }
