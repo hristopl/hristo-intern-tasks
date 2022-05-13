@@ -40,14 +40,22 @@ describe('getFiles', () => {
 
     expect(result).toEqual([])
   })
+  test('should return empty array if files are from exclude list', async () => {
+    readdir.mockResolvedValue(['package.json', 'node_modules'])
+
+    const args = { exclude: ['package.json', 'node_modules'], fileTypes: ['js'] }
+    const result = await getFiles(args)
+
+    expect(result).toEqual([])
+  })
 })
 
 describe('getFilesLength', () => {
   test('should return file length', () => {
-    const files = readFile.mockResolvedValue(['123.js', '222.ts', '333.js'])
+    const files = ['111.js', '222.js']
 
     const result = getFilesLength(files)
 
-    expect(result).toEqual()
+    expect(result).
   })
 })

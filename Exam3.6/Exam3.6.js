@@ -1,5 +1,5 @@
 import { readdir, readFile } from 'fs/promises'
-import { getFiles, getFilesLength } from './lib/helpers'
+// import { getFiles, getFilesLength } from './lib/helpers'
 
 const initArguments = { path: process.cwd(), fileTypes: ['js'], exclude: ['node_modules'] }
 const [, , ...options] = process.argv
@@ -38,7 +38,7 @@ readdir(path)
         files
           .map(buf => buf.toString('utf8'))
           .map(fileLines)
-          .forEach((len, index) => console.log(len, filteredFiles[index]))
+          .forEach((len, index) => console.log(filteredFiles[index] + ' has ' + len + ' lines of code.'))
       )
   })
   .catch(err => {
@@ -48,3 +48,5 @@ readdir(path)
 export {
   fileLines
 }
+
+// console.log(len, filteredFiles[index])

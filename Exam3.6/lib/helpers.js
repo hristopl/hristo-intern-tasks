@@ -18,9 +18,13 @@ const getFilesLength = file => {
       files
         .map(buf => buf.toString('utf8'))
         .map(fileLines)
-        .forEach((len, index) => console.log(len, file[index]))
+        .forEach((len, index) => console.log(file[index] + ' has ' + len + 'lines of code.'))
     ).catch(err => console.log(err))
 }
+
+const files = ['babel.config.js', 'jest.config.js']
+const result = getFilesLength(files)
+console.log(result)
 // const getFileLengths = async files => {
 
 // }
