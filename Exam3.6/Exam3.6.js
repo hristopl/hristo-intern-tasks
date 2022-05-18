@@ -1,5 +1,5 @@
-import { readdir, readFile } from 'fs/promises'
-// import { getFiles, getFilesLength } from './lib/helpers'
+// import { readdir, readFile } from 'fs/promises'
+import { getFiles, getFilesLength, displayFilesAndLengths } from './lib/helpers.js'
 
 const initArguments = { path: process.cwd(), fileTypes: ['js'], exclude: ['node_modules'] }
 const [, , ...options] = process.argv
@@ -22,31 +22,32 @@ if ('help' in args) {
   process.exit()
 }
 
-const { path, exclude, fileTypes } = args
+getFiles(args)
+  .then(getFilesLength)
+  .then(displayFilesAndLengths)
+  .catch(console.log)
 
-const fileLines = text => text.split(/\r\n|\r|\n/).length
+// const { path, exclude, fileTypes } = args
 
-readdir(path)
-  .then(files => {
-    const filteredFiles = files
-      .filter((file) => !exclude.includes(file))
-      .filter((file) => fileTypes.some((ex) => file.endsWith(ex)))
+// const fileLines = text => text.split(/\r\n|\r|\n/).length
 
-    const filePromises = filteredFiles.map(filesName => readFile(filesName))
-    Promise.all(filePromises)
-      .then(files =>
-        files
-          .map(buf => buf.toString('utf8'))
-          .map(fileLines)
-          .forEach((len, index) => console.log(filteredFiles[index] + ' has ' + len + ' lines of code.'))
-      )
-  })
-  .catch(err => {
-    console.log(err)
-  })
+// readdir(path)
+//   .then(files => {
+//     const filteredFiles = files
+//       .filter((file) => !exclude.includes(file))
+//       .filter((file) => fileTypes.some((ex) => file.endsWith(ex)))
 
-export {
-  fileLines
-}
+//     const filePromises = filteredFiles.map(filesName => readFile(filesName))
+//     Promise.all(filePromises)
+//       .then(files =>
+//         files
+//           .map(buf => buf.toString('utf8'))
+//           .map(fileLines)
+//           .forEach((len, index) => console.log(filteredFiles[index] + ' has ' + len + ' lines of code.'))
+//       )
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
 
-// console.log(len, filteredFiles[index])
+export {}

@@ -1,5 +1,5 @@
-const toIsoString = require('../Exam1.7')
-const { test, expect, describe } = require('@jest/globals')
+import toIsoString from '../Exam1.7'
+import { test, expect, describe } from '@jest/globals'
 
 describe('toIsoString', () => {
   test('should return date in ISO format', () => {

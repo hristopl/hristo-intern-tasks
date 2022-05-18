@@ -1,5 +1,5 @@
-const bubbleSort = require('../Exam1.2')
-const { test, expect, describe } = require('@jest/globals')
+import bubbleSort from '../Exam1.2'
+import { test, expect, describe } from '@jest/globals'
 
 const arr = [7, 5, 4, 2, 10, 45, 34, 3]
 

@@ -1,5 +1,5 @@
-const calculate = require('../Exam2.4-partTwo')
-const { test, describe, expect } = require('@jest/globals')
+import calculate from '../Exam2.4-partTwo'
+import { test, describe, expect } from '@jest/globals'
 
 describe('calculate', () => {
   test('should return new array with numbers divisible by given numbers', () => {

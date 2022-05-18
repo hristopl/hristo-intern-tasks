@@ -1,5 +1,5 @@
-const { test, expect, describe } = require('@jest/globals')
-const countArray = require('../Exam1.4')
+import { test, expect, describe } from '@jest/globals'
+import countArray from '../Exam1.4'
 
 const areAllZeroes = arr => Object.values(arr).every(x => x === 0)
 

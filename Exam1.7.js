@@ -16,4 +16,4 @@ const date = new Date('2022-12-02')
 const strDate = toIsoString(date)
 console.log(strDate)
 
-module.exports = toIsoString
+export default toIsoString

@@ -19,4 +19,4 @@ const bubbleSort = array => {
 bubbleSort(array)
 console.log('Array after sort: ' + '[' + array + ']')
 
-module.exports = bubbleSort
+export default bubbleSort

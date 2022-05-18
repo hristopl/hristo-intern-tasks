@@ -1,5 +1,5 @@
-const removeInner = require('../Exam2.6')
-const { test, describe, expect } = require('@jest/globals')
+import removeInner from '../Exam2.6'
+import { test, describe, expect } from '@jest/globals'
 
 describe('removeInner', () => {
   test('should remove inner pencentage', () => {

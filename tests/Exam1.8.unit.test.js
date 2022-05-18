@@ -1,5 +1,5 @@
-const timeDiff = require('../Exam1.8')
-const { test, expect, describe } = require('@jest/globals')
+import timeDiff from '../Exam1.8'
+import { test, expect, describe } from '@jest/globals'
 
 describe('timeDiff', () => {
   test('should return time difference between two dates', () => {

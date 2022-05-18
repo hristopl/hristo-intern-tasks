@@ -20,4 +20,4 @@ const func = (left, right) => {
 }
 console.log(sortingArray(array, func))
 
-module.exports = sortingArray
+export default sortingArray

@@ -108,4 +108,4 @@ const string = 'YYYY-Q-DD HH:mm:ss Is my proof of concept!'
 
 console.log(format(date, string))
 
-module.exports = format
+export default format

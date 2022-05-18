@@ -58,4 +58,4 @@ function countArray (array) {
 const result = countArray(array)
 console.log(result)
 
-module.exports = countArray
+export default countArray

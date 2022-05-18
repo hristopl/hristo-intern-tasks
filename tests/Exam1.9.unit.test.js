@@ -1,5 +1,5 @@
-const format = require('../Exam1.9')
-const { test, expect, describe } = require('@jest/globals')
+import format from '../Exam1.9'
+import { test, expect, describe } from '@jest/globals'
 
 describe.skip('format', () => {
   test('should format date to string', () => {

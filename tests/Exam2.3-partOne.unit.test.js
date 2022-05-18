@@ -1,5 +1,5 @@
-const appenderFP = require('../Exam2.3-partOne')
-const { test, describe, expect } = require('@jest/globals')
+import appenderFP from '../Exam2.3-partOne'
+import { test, describe, expect } from '@jest/globals'
 
 describe.skip('appenderFP', () => {
   test('should append truthy elements from arr1 to arr2', () => {

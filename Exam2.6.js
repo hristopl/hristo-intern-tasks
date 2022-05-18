@@ -12,4 +12,4 @@ const percentage = 50
 
 console.log(removeInner(arr, percentage))
 
-module.exports = removeInner
+export default removeInner

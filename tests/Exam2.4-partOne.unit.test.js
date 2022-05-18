@@ -1,5 +1,5 @@
-const calculate = require('../Exam2.4-partOne')
-const { test, describe, expect } = require('@jest/globals')
+import calculate from '../Exam2.4-partOne'
+import { test, describe, expect } from '@jest/globals'
 
 describe('calculate', () => {
   test('should return sum of elements in array which are higher than given num', () => {

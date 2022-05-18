@@ -26,4 +26,4 @@ const appenderFP = (arr1, arr2) => {
 
 console.log(appenderFP(arr1, arr2))
 
-module.exports = appenderFP
+export default appenderFP

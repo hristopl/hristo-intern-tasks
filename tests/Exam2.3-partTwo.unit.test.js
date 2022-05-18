@@ -1,5 +1,5 @@
-const appenderFP = require('../Exam2.3-partTwo-FP')
-const { test, expect, describe } = require('@jest/globals')
+import appenderFP from '../Exam2.3-partTwo-FP'
+import { test, expect, describe } from '@jest/globals'
 
 const arr1 = [
   [1, 2, 3, 4],

@@ -5,4 +5,4 @@ const counter = arr => arr.filter(n => n % 2 !== 0).length
 
 console.log(counter(array))
 
-module.exports = counter
+export default counter

@@ -1,5 +1,5 @@
-const counter = require('../Exam1.1')
-const { test, expect, describe } = require('@jest/globals')
+import counter from '../Exam1.1.js'
+import { test, expect, describe } from '@jest/globals'
 
 const arr = [6, 23, 51, 63, 22, 7, 3, 2, 14]
 console.log(counter(arr))

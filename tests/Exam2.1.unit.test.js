@@ -1,5 +1,5 @@
-const sortingArray = require('../Exam2.1')
-const { test, expect, describe } = require('@jest/globals')
+import sortingArray from '../Exam2.1'
+import { test, expect, describe } from '@jest/globals'
 
 describe('sortingArray', () => {
   const func = (left, right) => {

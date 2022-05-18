@@ -11,25 +11,22 @@ const getFiles = async argument => {
     .filter(file => fileTypes.some((ex) => file.endsWith(ex)))
 }
 
-const getFilesLength = file => {
-  const filePromises = file.map(filesName => readFile(filesName))
-  return Promise.all(filePromises)
-    .then(files =>
-      files
-        .map(buf => buf.toString('utf8'))
-        .map(fileLines)
-        .forEach((len, index) => console.log(file[index] + ' has ' + len + 'lines of code.'))
-    ).catch(err => console.log(err))
+const getFilesLength = async files => {
+  const filePromises = files.map(filesName => readFile(filesName))
+  const fileTexts = await Promise.all(filePromises)
+  const lengths = fileTexts
+    .map(buf => buf.toString('utf8'))
+    .map(fileLines)
+
+  return files.reduce((result, curr, index) => ({ ...result, [curr]: lengths[index] }), {})
 }
 
-const files = ['babel.config.js', 'jest.config.js']
-const result = getFilesLength(files)
-console.log(result)
-// const getFileLengths = async files => {
-
-// }
+const displayFilesAndLengths = lengths => {
+  return Object.entries(lengths).forEach(([key, len]) => console.log(`${key} has ${len} lines of code.`))
+}
 
 export {
   getFiles,
-  getFilesLength
+  getFilesLength,
+  displayFilesAndLengths
 }

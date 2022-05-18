@@ -31,4 +31,4 @@ const weightCounter = (obj) => {
 }
 console.log(weightCounter(obj))
 
-module.exports = weightCounter
+export default weightCounter

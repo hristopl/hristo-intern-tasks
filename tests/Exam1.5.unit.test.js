@@ -1,5 +1,5 @@
-const weightCounter = require('../Exam1.5-partOne')
-const { test, expect, describe } = require('@jest/globals')
+import weightCounter from '../Exam1.5-partOne'
+import { test, expect, describe } from '@jest/globals'
 
 const obj = {
   cards: 6,

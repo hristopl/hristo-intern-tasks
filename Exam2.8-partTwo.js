@@ -40,4 +40,4 @@ const weight = 2
 const result = findByWeight(array, weight)
 console.log(result)
 
-module.exports = findByWeight
+export default findByWeight

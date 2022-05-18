@@ -1,5 +1,5 @@
-const findLongestWord = require('../Exam1.6-partTwo')
-const { test, expect, describe } = require('@jest/globals')
+import findLongestWord from '../Exam1.6-partTwo'
+import { test, expect, describe } from '@jest/globals'
 
 describe('findLongestWord', () => {
   test('should find longest word with given char', () => {

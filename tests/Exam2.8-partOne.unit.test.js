@@ -1,5 +1,5 @@
-const findByWeight = require('../Exam2.8-partOne-FP')
-const { test, describe, expect } = require('@jest/globals')
+import findByWeight from '../Exam2.8-partOne-FP'
+import { test, describe, expect } from '@jest/globals'
 
 const arr = [
   6,

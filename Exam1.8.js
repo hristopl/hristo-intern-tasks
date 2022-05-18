@@ -31,4 +31,4 @@ const date2 = new Date('2022-01-20 10:00:00')
 
 console.log(timeDiff(date1, date2))
 
-module.exports = timeDiff
+export default timeDiff

@@ -1,5 +1,5 @@
-const containsObj = require('../Exam2.2-partOne')
-const { test, expect, describe } = require('@jest/globals')
+import containsObj from '../Exam2.2-partOne'
+import { test, expect, describe } from '@jest/globals'
 
 describe('containsObj', () => {
   test('should return true if array contains obj', () => {

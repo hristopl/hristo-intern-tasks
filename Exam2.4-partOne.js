@@ -8,4 +8,4 @@ const arr1 = [1, 2, 3, 4, 5, 6, 7]
 const higherThan = 4
 console.log(calculate(arr1, higherThan))
 
-module.exports = calculate
+export default calculate
